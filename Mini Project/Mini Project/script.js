@@ -16,7 +16,6 @@ const colorCircles = document.querySelectorAll('.color-circle');
 function render() {
   taskList.textContent = '';
 
-  
   for (let i = 0; i < tasks.length; i++) {
     const task = tasks[i];
 
@@ -47,6 +46,7 @@ function render() {
   }
 
   updateCounter();
+  
 }
 
 function updateCounter() {
@@ -68,11 +68,12 @@ function updateCounter() {
 
     allDoneMsg.classList.add('visible');
   } else {
-    counter.innerHTML = `Tasks remaining: <span id="remainingCount">${undoneTasks.length}</span> — ${doneCount} of ${tasks.length} tasks completed`;
+    counter.innerHTML = `Tasks remaining: <span id="remainingCount">${undoneTasks.length}</span> ,tasks completed ${doneCount} of ${tasks.length} `;
     counter.style.color = '';
     counter.style.fontWeight = '';
     allDoneMsg.classList.remove('visible');
   }
+  
 }
 
 function addTask() {
@@ -94,22 +95,26 @@ function addTask() {
 
   taskInput.value = '';
   render();
+  
 }
 
 function toggleDone(index) {
   tasks[index].done = !tasks[index].done;
   render();
+  
 }
 
 function deleteTask(index) {
   tasks.splice(index, 1);
   render();
+
 }
 
 function clearAll() {
   tasks = [];
   errorMsg.textContent = '';
   render();
+
 }
 addBtn.addEventListener('click', addTask);
 
