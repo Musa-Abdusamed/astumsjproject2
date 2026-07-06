@@ -1,11 +1,8 @@
 // ============================================================
-// To-Do List App Logic
+// To-Do List App js
 // ============================================================
-
-// R5 — Store tasks in an array of objects: { text, done }
 let tasks = [];
 
-// ── Grab elements ──
 const taskInput = document.getElementById('taskInput');
 const addBtn = document.getElementById('addBtn');
 const errorMsg = document.getElementById('errorMsg');
@@ -16,12 +13,10 @@ const counter = document.getElementById('counter');
 const allDoneMsg = document.getElementById('allDoneMsg');
 const colorCircles = document.querySelectorAll('.color-circle');
 
-// ── Render function: rebuilds the list from the tasks array ──
 function render() {
-  // Clear current list
   taskList.textContent = '';
 
-  // Build each task item
+  
   for (let i = 0; i < tasks.length; i++) {
     const task = tasks[i];
 
@@ -54,15 +49,13 @@ function render() {
   updateCounter();
 }
 
-// R4 + B3 + B4 — Update counters and style milestone
 function updateCounter() {
   const undoneTasks = tasks.filter(t => !t.done);
   const doneCount = tasks.length - undoneTasks.length;
 
   remainingCount.textContent = undoneTasks.length;
 
-  if (tasks.length > 0 && undoneTasks.length === 0) {
-    // B4 — All tasks done style milestone
+  if (tasks.length > 0 && undoneTasks.length ===0) { 
     counter.textContent = '';
     const celebrate = document.createElement('span');
     celebrate.id = 'remainingCount';
@@ -82,7 +75,6 @@ function updateCounter() {
   }
 }
 
-// R1 + B2 — Add a task
 function addTask() {
   const text = taskInput.value.trim();
 
@@ -91,7 +83,6 @@ function addTask() {
     return;
   }
 
-  // B2 — Prevent duplicates
   const existingTexts = tasks.map(t => t.text.toLowerCase());
   if (existingTexts.includes(text.toLowerCase())) {
     errorMsg.textContent = 'This task already exists!';
@@ -105,26 +96,21 @@ function addTask() {
   render();
 }
 
-// R2 — Toggle done/undone
 function toggleDone(index) {
   tasks[index].done = !tasks[index].done;
   render();
 }
 
-// R3 — Delete a task
 function deleteTask(index) {
   tasks.splice(index, 1);
   render();
 }
 
-// B1 — Clear all tasks
 function clearAll() {
   tasks = [];
   errorMsg.textContent = '';
   render();
 }
-
-// ── Event listeners ──
 addBtn.addEventListener('click', addTask);
 
 taskInput.addEventListener('keydown', (e) => {
@@ -134,8 +120,6 @@ taskInput.addEventListener('keydown', (e) => {
 });
 
 clearBtn.addEventListener('click', clearAll);
-
-// B5 — Color picker
 colorCircles.forEach(circle => {
   circle.addEventListener('click', () => {
     document.body.style.backgroundColor = circle.dataset.color;
@@ -144,6 +128,4 @@ colorCircles.forEach(circle => {
     circle.classList.add('active');
   });
 });
-
-// ── Initial render ──
 render();
