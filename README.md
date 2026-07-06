@@ -72,7 +72,11 @@ This project helps users manage daily tasks with features like add, delete, mark
 - Drag & drop reordering 📦  
 - Due dates ⏰  
 - Task categories 📁  
-- Dark mode 🌙  
+- Dark mode 🌙
+
+  ## 🚀 Live Demo
+
+👉 **[View Live Project](https://todolistastumsj2026.netlify.app/)**
 
 ---
 
