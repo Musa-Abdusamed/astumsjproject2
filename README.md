@@ -15,7 +15,7 @@ This project helps users manage daily tasks with features like add, delete, mark
 
 ## 📸 Project Overview
 
-![App Screenshot](Mini%20Project/overview.png)
+![App Screenshot](./mini%20project/Mini%20Project/overview.png)
 
 ---
 
